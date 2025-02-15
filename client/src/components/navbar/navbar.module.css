@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "inter-v";
+    src: url("/src/UI/Inter/Inter-V.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    background-color: #F6F7FD;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.navbar__links {
+    text-decoration: none;
+    color: #7E7E85;
+    font-size: 12px;
+    margin: 4px;
+    font-weight: 100;
+    font-family: "inter-v";
+    font-weight: 300;
+}
+
+.navbar__link {
+    display: flex;
+}

@@ -1,0 +1,142 @@
+@font-face {
+    font-family: "inter-bold";
+    src: url("/src/UI/Inter/Inter-Bold.otf");
+}
+
+@font-face {
+    font-family: "inter-v";
+    src: url("/src/UI/Inter/Inter-V.ttf");
+}
+
+* {
+    font-family: "inter-v";
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button {
+    background-color: #3AB54A;
+    border: none; 
+    border-radius: 10px;
+    display: flex; 
+    align-items: center;
+    color: white; 
+    padding: 10px 20px;
+    cursor: pointer; 
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.textConteiner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.title {
+    color: #3AB54A;
+    font-family: "inter-v";
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #7E7E85;
+    font-family: "inter-v";
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.textareacontainer {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.textareaWrapper {
+    position: relative;
+    margin-top: 10px; 
+    border: 1px solid #7E7E85;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #F6F7FD;
+    width: 80%;
+    max-width: 600px;
+    height: 150px;
+}
+
+.textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    font-family: inherit;
+    font-size: 16px;
+    background-color: transparent;
+}
+
+.fileIcon {
+    position: absolute;
+    right: 80px;
+    bottom: 10px;
+    cursor: pointer;
+    height: 24px;
+}
+
+.stroke {
+    position: absolute;
+    right: 48px;
+    bottom: 10px;
+    cursor: pointer;
+    height: 24px;
+}
+
+.chatContainer {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    height: 400px;
+    overflow-y: auto;
+}
+
+.message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+}
+
+.userMessage {
+    background-color: #3AB54A;
+    color: white;
+    margin-left: auto; /* Сообщение пользователя справа */
+}
+
+.botMessage {
+    background-color: #e0e0e0;
+    color: black;
+    margin-right: auto; /* Сообщение бота слева */
+}
+
+.fileInfo {
+    font-size: 12px;
+    color: #666;
+    margin-top: 5px;
+}

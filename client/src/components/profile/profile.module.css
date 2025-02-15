@@ -1,0 +1,387 @@
+.profileContainer {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: 'inter-v', sans-serif;
+}
+
+.profileHeader {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profileTitle {
+    font-size: 24px;
+    color: black;
+    margin: 0;
+}
+
+.profileInfo {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.profileName {
+    font-size: 20px;
+    margin: 0 0 15px 0;
+    color: #333;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.statItem1 {
+    text-align: center;
+    background-color: #F6F7FD;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.statItem2 {
+    text-align: center;
+    background-color: #E9FEEC;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.statItem3 {
+    text-align: center;
+    background-color: #FFD3D6;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.statLabel {
+    font-size: 14px;
+    color: #7E7E85;
+    display: block;
+}
+
+.statValue {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.actionButton {
+    background-color: #3AB54A;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.actionButton:hover {
+    background-color: #2d8a3a;
+}
+
+.blockedSection {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blockedTitle {
+    font-size: 18px;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.blockedText {
+    font-size: 14px;
+    color: #7E7E85;
+    margin: 0;
+}
+
+.profileContainer {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: 'inter-v', sans-serif;
+}
+
+.profileHeader {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profileTitle {
+    font-size: 24px;
+    color: #3AB54A;
+    margin: 0 0 10px 0;
+}
+
+.avatarBlock {
+    background-color: #F6F7FD; /* Светлосерый фон */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: #fff;
+}
+
+.profileInfo {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.profileName {
+    font-size: 20px;
+    margin: 0 0 15px 0;
+    color: #333;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.statItem1, .statItem2, .statItem3 {
+    text-align: center;
+    flex: 1;
+}
+
+.statLabel {
+    font-size: 14px;
+    color: #7E7E85;
+    display: block;
+}
+
+.statValue {
+    font-size: 18px;
+    color: #3AB54A;
+    font-weight: bold;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.actionButton {
+    background-color: #3AB54A;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.actionButton:hover {
+    background-color: #2d8a3a;
+}
+
+.blockedSection {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blockedTitle {
+    font-size: 18px;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.blockedText {
+    font-size: 14px;
+    color: #7E7E85;
+    margin: 0;
+}
+
+.profileContainer {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: 'inter-v', sans-serif;
+}
+
+.profileHeader {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profileTitle {
+    font-size: 24px;
+    color: black;
+    margin: 0 0 10px 0;
+}
+
+.avatarBlock {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.profileInfo {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.profileName {
+    font-size: 20px;
+    margin: 0 0 15px 0;
+    color: #333;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+}
+
+.statItem1, .statItem2, .statItem3 {
+    text-align: center;
+    flex: 1;
+}
+
+.statLabel {
+    font-size: 14px;
+    color: #7E7E85;
+    display: block;
+}
+
+.statValue {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.actionButton {
+    background-color: #3AB54A;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.actionButton:hover {
+    background-color: #2d8a3a;
+}
+
+.blockedSection {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.blockContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.blockLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blockPhoto {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.blockEmail {
+    font-size: 12px;
+    color: #7E7E85;
+    margin: 0;
+}
+
+.blockCenter {
+    flex: 1;
+    margin: 10px 15px;
+}
+
+.blockText {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
+
+.blockRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blockRightText {
+    font-size: 12px;
+    color: #7E7E85;
+    margin: 0;
+}

@@ -1,0 +1,65 @@
+# Игнорировать зависимости
+node_modules/
+**/node_modules/
+
+# Игнорировать файлы окружения
+.env
+.env.local
+.env.development
+.env.production
+/server/.env
+# Игнорировать логи и временные файлы
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Игнорировать папки сборки
+build/
+dist/
+out/
+
+# Игнорировать файлы IDE
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Игнорировать кэш
+.cache/
+.temp/
+
+# Игнорировать файлы операционной системы
+.DS_Store
+Thumbs.db
+
+# Игнорировать файлы npm/yarn/pnpm
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Игнорировать файлы базы данных (если используются локальные файлы)
+*.sqlite
+*.db
+
+# Игнорировать загруженные файлы (если есть папка uploads)
+uploads/
+
+# Игнорировать папку .next (если используется Next.js)
+.next/
+
+# Игнорировать папку coverage (если используются тесты)
+coverage/
+
+# Игнорировать папку .nyc_output (если используется Istanbul для тестов)
+.nyc_output/
+
+# Игнорировать файлы конфигурации ESLint и Prettier (если используются)
+.eslintcache
+.prettierignore
+.prettierrc

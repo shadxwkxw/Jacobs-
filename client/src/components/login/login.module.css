@@ -1,0 +1,23 @@
+.google {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.googleButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+button {
+    background-color: transparent;
+    border: 2px solid #3AB54A;
+    border-radius: 15px;
+    color: #3AB54A;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
