@@ -13,6 +13,18 @@ const Profile = observer(() => {
     const acceptedRequests = blocks.filter(block => block.rightText2 === "Принят").length;
     const blockedRequests = blocks.filter(block => block.rightText2 === "Заблокирован").length;
 
+    const formatDate = (dateString) => {
+        if (!dateString) return '';
+        const date = new Date(dateString);
+        const year = date.getUTCFullYear();
+        const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+        const day = String(date.getUTCDate()).padStart(2, '0');
+        const hours = String(date.getUTCHours()).padStart(2, '0');
+        const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+        const seconds = String(date.getUTCSeconds()).padStart(2, '0');
+        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+    };
+
     useEffect(() => {
         const fetchBlocks = async () => {
             try {
@@ -26,7 +38,7 @@ const Profile = observer(() => {
 
         fetchBlocks();
     }, []);
-
+    
     const addBlock = async (newBlock) => {
         try {
             setBlocks([...blocks, newBlock]);
@@ -101,15 +113,12 @@ const Profile = observer(() => {
                 >
                     <div className={cl.blockContent}>
                         <div className={cl.blockLeft}>
-                            <img src={block.photoURL} alt="Фото пользователя" className={cl.blockPhoto} />
-                            <p className={cl.blockEmail}>{block.email}</p>
-                            <p className={cl.blockEmail}>{block.createdAt}</p>
+                            <p className={cl.blockCreatedAtl}>{formatDate(block.createdAt)}</p>
                         </div>
                         <div className={cl.blockCenter}>
                             <p className={cl.blockText}>{block.text}</p>
                         </div>
                         <div className={cl.blockRight}>
-                            <p className={cl.blockRightText}>{block.rightText1}</p>
                             <p className={cl.blockRightText}>{block.rightText2}</p>
                         </div>
                     </div>
