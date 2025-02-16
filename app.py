@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 import torch
-from transformers import DistilBertTokenizer, DistilBertForSequenceClassification, pipeline
+from transformers import DistilBertTokenizer, DistilBertForSequenceClassification, pipeline, DistilBertConfig
 import os
 from flask_cors import CORS
 import sqlite3
@@ -30,8 +30,16 @@ MODEL_NAME = "distilbert-base-uncased"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 tokenizer = DistilBertTokenizer.from_pretrained(MODEL_NAME)
-model = DistilBertForSequenceClassification.from_pretrained(MODEL_NAME, num_labels=2)
-model.load_state_dict(torch.load(MODEL_PATH, map_location=device))
+# model = DistilBertForSequenceClassification.from_pretrained(MODEL_NAME, num_labels=2)
+# model.load_state_dict(torch.load(MODEL_PATH, map_location=device))
+model = DistilBertForSequenceClassification.from_pretrained(
+    MODEL_NAME, 
+    config=DistilBertConfig.from_pretrained(".")  # Грузим ваш config
+)
+model.load_state_dict(
+    torch.load(MODEL_PATH, map_location=device, weights_only=True),  # Fix security warning
+    strict=False  # Игнорируем несовпадения некоторых слоев
+)
 model.to(device)
 model.eval()
 
