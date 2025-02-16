@@ -37,7 +37,7 @@ model = DistilBertForSequenceClassification.from_pretrained(
     config=DistilBertConfig.from_pretrained(".")  # Грузим ваш config
 )
 model.load_state_dict(
-    torch.load(MODEL_PATH, map_location=device, weights_only=True),  # Fix security warning
+    torch.load(MODEL_PATH, map_location=device, weights_only=False),  # Fix security warning
     strict=False  # Игнорируем несовпадения некоторых слоев
 )
 model.to(device)
