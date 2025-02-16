@@ -124,15 +124,15 @@
 }
 
 .userMessage {
-    background-color: #3AB54A;
-    color: white;
-    margin-left: auto; /* Сообщение пользователя справа */
+    background-color: #e8e6e6;
+    color: black;
+    margin-left: auto;
 }
 
 .botMessage {
     background-color: #e0e0e0;
     color: black;
-    margin-right: auto; /* Сообщение бота слева */
+    margin-right: auto;
 }
 
 .fileInfo {

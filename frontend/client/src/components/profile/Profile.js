@@ -8,22 +8,11 @@ const Profile = observer(() => {
     const { auth } = useContext(Context);
     const [user] = useAuthState(auth);
     const [blocks, setBlocks] = useState([]);
+    const [error, setError] = useState("");
 
     const totalRequests = blocks.length;
-    const acceptedRequests = blocks.filter(block => block.rightText2 === "Принят").length;
-    const blockedRequests = blocks.filter(block => block.rightText2 === "Заблокирован").length;
-
-    const formatDate = (dateString) => {
-        if (!dateString) return '';
-        const date = new Date(dateString);
-        const year = date.getUTCFullYear();
-        const month = String(date.getUTCMonth() + 1).padStart(2, '0');
-        const day = String(date.getUTCDate()).padStart(2, '0');
-        const hours = String(date.getUTCHours()).padStart(2, '0');
-        const minutes = String(date.getUTCMinutes()).padStart(2, '0');
-        const seconds = String(date.getUTCSeconds()).padStart(2, '0');
-        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-    };
+    const acceptedRequests = blocks.filter(block => block.rightText2 === "Принято").length;
+    const blockedRequests = blocks.filter(block => block.rightText2 === "Заблокировано").length;
 
     useEffect(() => {
         const fetchBlocks = async () => {
@@ -35,36 +24,42 @@ const Profile = observer(() => {
                 console.error("Ошибка при загрузке данных:", error);
             }
         };
-
         fetchBlocks();
     }, []);
-    
-    const addBlock = async (newBlock) => {
-        try {
-            setBlocks([...blocks, newBlock]);
 
-            const response = await fetch("http://localhost:5000/api/blocks", {
+    const handleFileUpload = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append("file", file);
+
+        try {
+            const response = await fetch("http://localhost:5000/api/upload", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(newBlock),
+                body: formData,
             });
 
             if (!response.ok) {
-                throw new Error("Ошибка при добавлении блока");
+                const errorData = await response.json();
+                throw new Error(errorData.error || "Ошибка загрузки");
             }
 
-            const data = await response.json();
-            setBlocks((prevBlocks) =>
-                prevBlocks.map((block) =>
-                    block.id === newBlock.id ? { ...block, ...data } : block
-                )
-            );
-        } catch (error) {
-            console.error("Ошибка:", error);
-            setBlocks(blocks.filter((block) => block.id !== newBlock.id));
+            const updatedResponse = await fetch("http://localhost:5000/api/blocks");
+            const updatedData = await updatedResponse.json();
+            setBlocks(updatedData);
+            setError("");
+
+        } catch (err) {
+            setError(err.message);
+            console.error("Ошибка:", err);
         }
+    };
+
+    const formatDate = (dateString) => {
+        if (!dateString) return '';
+        const date = new Date(dateString);
+        return date.toLocaleString();
     };
 
     return (
@@ -93,35 +88,31 @@ const Profile = observer(() => {
                 </div>
             </div>
             <div className={cl.actions}>
+            <label className={cl.uploadButton}>
+                    <input
+                        type="file"
+                        hidden
+                        onChange={handleFileUpload}
+                        accept=".pdf,.docx"
+                    />
+                </label>
                 <button className={cl.actionButton} onClick={() => auth.signOut()}>
                     Выйти
                 </button>
             </div>
+            {error && <div className={cl.error}>{error}</div>}
             <h1 className={cl.profileTitle}>История запросов</h1>
             {blocks.map((block) => (
                 <div
                     key={block.id}
                     className={cl.blockedSection}
                     style={{
-                        backgroundColor:
-                            block.rightText2 === "Заблокирован"
-                                ? "#FFD3D6"
-                                : block.rightText2 === "Принят"
-                                ? "#E9FEEC"
-                                : "transparent"
+                        backgroundColor: block.rightText2 === "Заблокировано" ? "#FFD3D6" : "#E9FEEC",
                     }}
                 >
-                    <div className={cl.blockContent}>
-                        <div className={cl.blockLeft}>
-                            <p className={cl.blockCreatedAtl}>{formatDate(block.createdAt)}</p>
-                        </div>
-                        <div className={cl.blockCenter}>
-                            <p className={cl.blockText}>{block.text}</p>
-                        </div>
-                        <div className={cl.blockRight}>
-                            <p className={cl.blockRightText}>{block.rightText2}</p>
-                        </div>
-                    </div>
+                    <p className={cl.statValue}>{formatDate(block.createdAt)}</p>
+                    <p className={cl.statText}>{block.text}</p>
+                    <p className={cl.statLabel}>{block.rightText2}</p>
                 </div>
             ))}
         </div>

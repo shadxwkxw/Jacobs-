@@ -22,7 +22,7 @@ const Check = () => {
     };
 
     const sendMessage = async () => {
-        if (!value.trim() && !fileName) return;
+        if (!value.trim()) return;
 
         const userMessage = {
             id: messages.length + 1,
@@ -36,44 +36,38 @@ const Check = () => {
         setFileName('');
 
         try {
-            const response = await fetch("http://localhost:5000/api/blocks", {
+            const response = await fetch("http://localhost:5000/api/predict", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({
-                    photoURL: user.photoURL,
-                    email: user.email,
-                    text: value,
-                    rightText1: "Данные 1",
-                    rightText2: "Данные 2",
-                }),
+                body: JSON.stringify({ text: value }),
             });
 
             if (response.ok) {
                 const data = await response.json();
-                console.log("Данные успешно сохранены:", data);
+                setMessages((prevMessages) => [
+                    ...prevMessages,
+                    { id: messages.length + 2, text: data.message, isUser: false },
+                ]);
             } else {
-                console.error("Ошибка при сохранении данных");
+                console.error("Ошибка при получении данных");
             }
         } catch (error) {
             console.error("Ошибка при отправке запроса:", error);
         }
-
-        setTimeout(() => {
-            const botMessage = {
-                id: messages.length + 2,
-                text: "Это ответ от нейронной сети на ваше сообщение: " + value,
-                isUser: false,
-            };
-            setMessages((prevMessages) => [...prevMessages, botMessage]);
-        }, 1000);
     };
+
+    const clearChat = () => {
+        setMessages([])
+        setFileName('')
+        setValue('')
+    }
 
     return (
         <div>
             <div className={cl.container}>
-                <Button className={cl.button} variant="success">
+                <Button className={cl.button} variant="success" onClick={clearChat}>
                     <img src={image} alt="icon" className={cl.icon} />
                     Новый чат
                 </Button>
