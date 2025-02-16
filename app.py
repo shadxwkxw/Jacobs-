@@ -30,15 +30,15 @@ MODEL_NAME = "distilbert-base-uncased"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 tokenizer = DistilBertTokenizer.from_pretrained(MODEL_NAME)
-# model = DistilBertForSequenceClassification.from_pretrained(MODEL_NAME, num_labels=2)
-# model.load_state_dict(torch.load(MODEL_PATH, map_location=device))
+
+# Модель с загрузкой конфигурации и весов
 model = DistilBertForSequenceClassification.from_pretrained(
     MODEL_NAME, 
-    config=DistilBertConfig.from_pretrained(".")  # Грузим ваш config
+    config=DistilBertConfig.from_pretrained(".")  # Грузим ваш config.json
 )
 model.load_state_dict(
-    torch.load(MODEL_PATH, map_location=device, weights_only=False),  # Fix security warning
-    strict=False  # Игнорируем несовпадения некоторых слоев
+    torch.load(MODEL_PATH, map_location=device),  # Загрузка весов
+    strict=False  # Игнорируем несовпадения слоев
 )
 model.to(device)
 model.eval()
